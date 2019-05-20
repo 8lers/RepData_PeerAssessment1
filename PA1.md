@@ -7,6 +7,8 @@ output:
     keep_md: true
 ---
 
+
+
 This report is meant to serve as an introduction to creating R markdown documents as a means to facilitate reproducible research. The following report will briefly detail the process of extracting, preparing, and plotting some rudimentary data from a human activity database
 
 First, import the data:
@@ -22,7 +24,7 @@ total_steps_per_day=tapply(data$steps, data$date, sum, na.rm=T)
 hist(total_steps_per_day, xlab='Steps', main='Total steps per day')
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](README_figs/README-unnamed-chunk-3-1.png)<!-- -->
 
 Now let's see the **mean** and **median** of the total number of steps taken each day:
 
@@ -40,7 +42,7 @@ plot(mean_steps_time_interval, xaxt='n', ylab='Mean # of steps', main='Mean Numb
 axis(side=1, at=seq(1,length(unique(data$interval)), 1), labels=as.character(unique(data$interval)))
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](README_figs/README-unnamed-chunk-5-1.png)<!-- -->
 
 ```r
 #Now we calculate the max of the mean steps, and report the time at which it occurs
@@ -82,7 +84,7 @@ total_steps_per_day_filledNA=tapply(new_data$steps, new_data$date, sum, na.rm=T)
 hist(total_steps_per_day_filledNA, xlab='Steps', main='Total steps per day - filled NA values')
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](README_figs/README-unnamed-chunk-8-1.png)<!-- -->
 
 ```r
 mean_steps_per_day_filledNA=mean(total_steps_per_day_filledNA) #10766.19
@@ -121,5 +123,5 @@ xyplot(averaged_data$steps~averaged_data$interval|averaged_data$day, type='l', l
        xlab='Interval', ylab='Number of steps')
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](README_figs/README-unnamed-chunk-10-1.png)<!-- -->
 
